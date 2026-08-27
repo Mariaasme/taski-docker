@@ -1,9 +1,7 @@
 # docker-compose.production.yml
-
 volumes:
   pg_data_production:
   static_volume:
-
 # Всё отличие — заменяем build на image и указываем, какой образ использовать
 services:
   db:
@@ -24,7 +22,6 @@ services:
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static_volume:/frontend_static
-    restart: on-failure
   gateway:
     image: iammaria/taski_gateway  # Качаем с Docker Hub
     env_file: .env
